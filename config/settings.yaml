@@ -1,0 +1,43 @@
+robot:
+  connection_type: "ap"
+
+data_collection:
+  data_dir: "data/raw/run1"
+  files:
+    position: "position_data"
+    attitude: "attitude_data"
+    imu: "idle_imu_data"
+    esc: "esc_data.csv"
+    distance: "tof_data"
+    infrared: "ir_data"
+    lidar: "gimbal_lidar_data"
+    exploration: "exploration_map_data"
+
+  frequencies:
+    position: 1
+    attitude: 5
+    imu: 10
+    esc: 20
+    distance: 5
+  buffer_time: 0.5   # Wait time before closing (seconds)
+
+movement:
+  xy_speed: 0.5     # Forward/Reverse Speed ​​(m/s)
+  distance: 0.6      # Forward/backward travel distance (m)
+  z_speed: 90        # Rotation speed (degrees/second)
+  angle: 90          # Initial turning angle (e.g., 90 degrees)
+
+lidar_scan:
+  start_yaw: -75             
+  end_yaw: 75
+  yaw_speed: 25
+  pitch: 0
+  min_valid_dist_mm: 100
+  max_valid_dist_mm: 10000
+
+grid_map:
+  max_x: 6
+  max_y: 5
+  goal:
+    x: 5
+    y: 0
