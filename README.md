@@ -19,3 +19,12 @@ python3 src/camera_view.py --connection ap --resolution 720p
 
 Supported connection types are `ap`, `sta`, and `rndis`; supported resolutions
 are `360p`, `540p`, and `720p`.
+
+The viewer automatically looks for a solid red rectangular card. When it finds
+one, it draws a green box around the card and shows `RED CARD DETECTED` in the
+video window. If a small card is too far away to detect, lower the minimum pixel
+area (lower values can also cause more false detections):
+
+```bash
+python3 src/camera_view.py --min-card-area 700
+```
