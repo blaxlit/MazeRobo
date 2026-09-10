@@ -103,7 +103,12 @@ def show_camera(connection_type, resolution, min_card_area):
 
     try:
         print(f"Connecting to RoboMaster using '{connection_type}' mode...")
-        ep_robot.initialize(conn_type=connection_type)
+        
+        # ✅ แก้ไขบั๊ก proxy_addr โดยการดักด้วยการย่อหน้าที่ถูกต้อง
+        if connection_type == "ap":
+            ep_robot.initialize(conn_type="ap", proto_type="udp")
+        else:
+            ep_robot.initialize(conn_type=connection_type)
 
         ep_camera = ep_robot.camera
         ep_camera.start_video_stream(display=False, resolution=resolution)
